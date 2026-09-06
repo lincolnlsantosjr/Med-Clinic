@@ -15,8 +15,8 @@
     "sourceMap": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "moduleResolution": "node"
+    "moduleResolution": "bundler"
   },
-  "include": ["src"],
+  "include": ["src", "src/server.ts"],
   "exclude": ["node_modules", "dist"]
 }
