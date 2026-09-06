@@ -1,6 +1,7 @@
 import "reflect-metadata";
 import express, { Express, Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
+import { AppDataSource } from "./database/data-source";
 
 dotenv.config();
 
@@ -16,6 +17,9 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 const startServer = async (): Promise<void> => {
+  AppDataSource.initialize();
+    console.log("✅ Database connection established");
+    
   app.listen(PORT, () => {
     console.log(`✅ Server running on http://localhost:${PORT}`);
     console.log(`📚 API Documentation:`);
