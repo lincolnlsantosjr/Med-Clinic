@@ -1,5 +1,6 @@
-import { User, UserRole } from "../entitites/user";
+import { User, UserRole } from "../entities/user";
 import { UserRepository } from "../repositories/userRepository";
+import { PasswordUtils } from "../utils/password";
 
 interface CreateUserDTO {
   name: string;
@@ -41,11 +42,13 @@ export class UserService {
       throw new Error("Password must be at least 6 characters");
     }
 
+    const hashedPassword = await PasswordUtils.hashPassword(data.password);
 
     const user = await this.userRepository.create(
       data.name,
       data.email,
-      data.role || UserRole.ATTENDANT
+      hashedPassword,
+      data.role || UserRole.ATTENDANT,
     );
 
     return this.mapToDTO(user);

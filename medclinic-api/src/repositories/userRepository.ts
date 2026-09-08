@@ -1,6 +1,6 @@
 import { Repository } from "typeorm";
 import { AppDataSource } from "../database/data-source";
-import { User, UserRole } from "../entitites/user";
+import { User, UserRole } from "../entities/user";
 
 export class UserRepository {
   private repository: Repository<User>;
@@ -49,6 +49,6 @@ export class UserRepository {
 
   async delete(id: string): Promise<boolean> {
     const result = await this.repository.delete(id);
-    return result.affected !== undefined && result.affected > 0;
+    return result.affected !== undefined && result.affected! > 0;
   }
 }
