@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppDataSource = void 0;
 require("reflect-metadata");
 const typeorm_1 = require("typeorm");
+const user_1 = require("../entities/user");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 exports.AppDataSource = new typeorm_1.DataSource({
@@ -13,11 +14,12 @@ exports.AppDataSource = new typeorm_1.DataSource({
     host: process.env.DB_HOST || "localhost",
     port: parseInt(process.env.DB_PORT || "5432"),
     username: process.env.DB_USERNAME || "postgres",
-    password: process.env.DB_PASSWORD || "123456",
+    password: process.env.DB_PASSWORD || "postgres",
     database: process.env.DB_NAME || "medclinic_db",
     synchronize: false,
     logging: false,
-    migrations: [],
+    entities: [user_1.User],
+    migrations: ["src/migrations/*.ts"],
     subscribers: [],
 });
 //# sourceMappingURL=data-source.js.map
