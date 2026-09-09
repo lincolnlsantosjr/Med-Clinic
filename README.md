@@ -131,7 +131,13 @@ cd medclinic-api
 npm install
 ```
 
-### 3. Executar as Migrations
+### 3. Executar o build 
+
+```bash
+npm run build
+```
+
+### 4. Executar as Migrations
 
 As migrations criarão a tabela `users` e todas as estruturas necessárias:
 
@@ -144,7 +150,7 @@ npm run migration:run
 Migration CreateUsersTable1704067200000 has been executed successfully.
 ```
 
-### 4. Executar a Aplicação
+### 5. Executar a Aplicação
 
 #### Modo Desenvolvimento
 
