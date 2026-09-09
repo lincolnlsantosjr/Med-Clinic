@@ -131,7 +131,13 @@ cd medclinic-api
 npm install
 ```
 
-### 3. Executar as Migrations
+### 3. Executar o build 
+
+```bash
+npm run build
+```
+
+### 4. Executar as Migrations
 
 As migrations criarão a tabela `users` e todas as estruturas necessárias:
 
@@ -144,7 +150,7 @@ npm run migration:run
 Migration CreateUsersTable1704067200000 has been executed successfully.
 ```
 
-### 4. Executar a Aplicação
+### 5. Executar a Aplicação
 
 #### Modo Desenvolvimento
 
@@ -689,71 +695,6 @@ npm run migration:revert
 npm run migration:show
 ```
 
----
 
-## ⚠️ Troubleshooting
 
-### Erro: "Migration not found"
-```bash
-# Solução: Recriar banco e executar migrations
-dropdb medclinic_db
-createdb medclinic_db
-npm run migration:run
-```
 
-### Erro: "Connection to database failed"
-```bash
-# Verificar credenciais em .env
-# Confirmar que PostgreSQL está rodando
-# Testar conexão manualmente
-psql -U postgres -d medclinic_db -c "SELECT 1;"
-```
-
-### Erro: "JWT_SECRET is not defined"
-```bash
-# Adicionar JWT_SECRET ao arquivo .env
-JWT_SECRET=sua_chave_secreta_aqui
-```
-
----
-
-## 📈 Próximas Etapas
-
-As funcionalidades a seguir serão implementadas em etapas futuras do projeto:
-
-1. **Etapa 2** - Gerenciamento de Especialidades
-2. **Etapa 3** - Gerenciamento de Médicos
-3. **Etapa 4** - Gerenciamento de Pacientes
-4. **Etapa 5** - Gerenciamento de Consultas
-5. **Etapa 6** - Relatórios e Analytics
-
-Toda a base desenvolvida nesta etapa foi estruturada para receber essas funcionalidades sem necessidade de reestruturação.
-
----
-
-## 📄 Licença
-
-MIT
-
----
-
-## 👨‍💻 Informações do Projeto
-
-- **Versão:** 1.0.0
-- **Status:** Etapa 1 - Completa
-- **Data de Conclusão:** Janeiro de 2024
-- **Linguagem:** TypeScript
-- **Frameworks:** Node.js, Express.js, TypeORM
-
----
-
-## 📞 Suporte
-
-Para dúvidas sobre implementação:
-- Consulte a seção de Troubleshooting
-- Verifique os exemplos de requisição/resposta
-- Analise o histórico de commits no Git
-
----
-
-**Desenvolvido como projeto educacional para aprendizado de desenvolvimento backend com Node.js, TypeScript e Express.js**
